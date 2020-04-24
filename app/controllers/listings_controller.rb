@@ -6,6 +6,7 @@ class ListingsController < ApplicationController
     end
 
     def show
+    
     end
        
 
@@ -15,6 +16,11 @@ class ListingsController < ApplicationController
 
     def create
         #finish logic for creating a record
+        Listing.create(listing_params)
+    end
+
+    def listing_params
+        params.require(:listing).permit(:title, :description, :breed_id, :sex, :prrice, :deposit, :date_of_birth, :diet, :picture)    end
     end
 
     def edit
@@ -38,5 +44,3 @@ class ListingsController < ApplicationController
         id = params[:id]
         @listing = Listing.find(id)
     end
-
-end
