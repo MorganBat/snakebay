@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-    before_action :set_listing(), only: [:show, :edit, :update, :destroy]
+    before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
     def index
         @listings = Listing.all
@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
        
 
     def new
+        @listing = Listing.new
     end
 
     def create
@@ -17,12 +18,13 @@ class ListingsController < ApplicationController
     end
 
     def edit
-        
+    
+    end 
        
 
     def update
         
-        #finsih logic for updating the record
+        #finish logic for updating the record
     end
 
     def destroy
