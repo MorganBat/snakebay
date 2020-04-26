@@ -19,10 +19,6 @@ class ListingsController < ApplicationController
         Listing.create(listing_params)
     end
 
-    def listing_params
-        params.require(:listing).permit(:title, :description, :breed_id, :sex, :prrice, :deposit, :date_of_birth, :diet, :picture)    end
-    end
-
     def edit
     
     end 
@@ -44,3 +40,9 @@ class ListingsController < ApplicationController
         id = params[:id]
         @listing = Listing.find(id)
     end
+
+    def listing_params
+        params.require(:listing).permit(:title, :description, :breed_id, :sex, :city, :state, :price, :deposit, :date_of_birth, :diet, :picture)    end
+    end
+
+end
