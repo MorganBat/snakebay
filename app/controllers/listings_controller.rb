@@ -8,10 +8,10 @@ class ListingsController < ApplicationController
     def show
     
     end
-       
+
 
     def new
-        @breeds = Breed.all
+        set_breeds_and_sexes
         @listing = Listing.new
     end
 
@@ -19,6 +19,7 @@ class ListingsController < ApplicationController
         #finish logic for creating a record
         @listing= Listing.create(listing_params)
         if @listing.errors.any?
+            set_breeds_and_sexes
             render "new"
         end
     end
@@ -45,7 +46,11 @@ class ListingsController < ApplicationController
         @listing = Listing.find(id)
     end
 
+    def set_breeds_and_sexes
+        @breeds = Breed.all
+        @sexes = Listing.sexes.keys
+    end
+
     def listing_params
         params.require(:listing).permit(:title, :description, :breed_id, :sex, :city, :state, :price, :deposit, :date_of_birth, :diet, :picture)    end
     end
-
