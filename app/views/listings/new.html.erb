@@ -20,7 +20,7 @@
     <div>
     <% @sexes.each do |option| %>
         <%= form.radio_button :sex, option %>
-        <%= form.label "sex_#{}"%>
+        <%= form.label "sex:_#{option}"%>
     <% end %>
     </div>
     <div>
@@ -50,6 +50,13 @@
     <div>
         <%= form.label :diet %>
         <%= form.text_field :diet %>
+    </div>
+    <div>
+        <%= form.label :picture %>
+        <%= form.file_field :picture, accept: "image/png,image/gif,image/jpeg,image/jpg" %>
+        <% if @listing.errors.any? %>
+            FILL THIS OUT AGAIN
+        <% end %>
     </div>
     <div>
         <%= form.submit %>
