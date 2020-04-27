@@ -20,7 +20,7 @@
     <div>
     <% @sexes.each do |option| %>
         <%= form.radio_button :sex, option %>
-        <%= form.label "sex_#{option}".to_sym%>
+        <%= form.label "sex_#{}"%>
     <% end %>
     </div>
     <div>
