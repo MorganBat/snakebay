@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
     end
 
     def show
-        @listings = Listing.find(params["id"])
+        @listing = Listing.find(params["id"])
     end
 
     def new
@@ -24,7 +24,7 @@ class ListingsController < ApplicationController
     end
 
     def edit
-    
+        set_breeds_and_sexes()
     end 
        
     def update

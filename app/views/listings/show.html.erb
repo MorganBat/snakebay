@@ -1,9 +1,23 @@
-<%= @listings.title %>
-<%= @listings.breed_id %>
-<%= @listings.sex %>
-<%= @listings.price %>
-<%= @listings.deposit %>
-<%= @listings.city %>
-<%= @listings.state %>
-<%= @listings.date_of_birth %>
-<%= @listings.diet %>
+<%= @listing.title %>
+<br />
+<%= @listing.breed_id %>
+<br />
+<%= @listing.sex %>
+<br />
+<%= @listing.price %>
+<br />
+<%= @listing.deposit %>
+<br />
+<%= @listing.city %>
+<br />
+<%= @listing.state %>
+<br />
+<%= @listing.date_of_birth %>
+<br />
+<%= @listing.diet %>
+<br />
+<%= image_tag @listing.picture if @listing.picture.attached? %>
+<br />
+<%= link_to  "edit listing", edit_listing_path(@listing.id) %>
+<br />
+<%= link_to  "back", listings_path %>
