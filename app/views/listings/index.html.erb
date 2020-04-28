@@ -15,7 +15,7 @@
                         <br/>
 
         </div>
-        <% if current_user.id == listing.id %>    
+        <% if current_user.id == listing.user_id %>    
             <%= form_with model: listing, local: true, method: "delete" do |form| %>
             <div class="modify-icons">
                 <%= submit_tag "delete", class: "icon" %>
