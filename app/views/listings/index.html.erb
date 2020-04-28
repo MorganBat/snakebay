@@ -1,6 +1,26 @@
-<% for listing in @listings %>
-    <li>
-        <%= link_to listing.title, listing_path(listing.id) %>
+<h1>Snakes for sale</h1>
+<%= link_to "create listing", new_listing_path %>
+<div class="listings">
+<%  for listing in @listings %>
+    <div class="listing">
         <%= image_tag listing.picture if listing.picture.attached? %>
-    </li>
+        <div class="info">
+            <div class="info-bar">
+                <div>$<%= listing.price%></div>
+                <div><%= listing.sex%></div>
+                <div><%= listing.date_of_birth%></div>
+            </div>
+            <%= link_to listing.title, listing_path(listing.id)%>
+            <div><%= listing.description %></div>
+                        <br/>
+
+        </div>
+        <%= form_with model: listing, local: true, method: "delete" do |form| %>
+        <div class="modify-icons">
+            <%= submit_tag "delete", class: "icon" %>
+            <%= link_to "edit", edit_listing_path(listing.id), class: "icon" %>
+        </div>
+        <% end %>
+    </div>
 <% end %>
+</div>
